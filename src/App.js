@@ -1,25 +1,30 @@
-import logo from './logo.svg';
+
 import './App.css';
+import Header from './componentes/header/Header';
+import cardData from './data/cardData';
+import Card from './componentes/card/Card';
+import Footer from './componentes/footer/Footer';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <Header title="Galeria de Imagenes con React"/>
+      {cardData.map((card) => {
+        return (
+        <Card
+          key={card.id}
+          title={card.title}
+          description={card.description}
+          img={card.img}
+      
+        />
+        )
+      }
+      )}
+      <Footer title="Todos los Derechos Reservados"/>
+    </>
   );
 }
+
 
 export default App;
